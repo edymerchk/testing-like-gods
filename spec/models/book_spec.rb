@@ -13,24 +13,16 @@
 
 describe Book do
 
-  it "has a valid factory" do
-    expect(build(:book)).to be_valid
-  end
+  describe 'Validations' do
+    it { expect(subject).to validate_presence_of(:title) }
+    it { expect(subject).to validate_presence_of(:description) }
 
-  describe "#is_released?" do
-    context "when the book is released" do
-      let(:book) { create(:book, :released) }
-      it "returns true" do
-        expect(book.is_released?).to be_truthy
-      end
+    it { expect(subject).to validate_uniqueness_of (:title) }
+
+    it do should validate_numericality_of(:price).
+      is_greater_than_or_equal_to(1).
+      is_less_than_or_equal_to(50)
     end
 
-    context "when the book is not released" do
-      let(:book) { create(:book, :unreleased) }
-      it "returns false" do
-        expect(book.is_released?).to be_falsey
-      end
-    end
   end
-
 end

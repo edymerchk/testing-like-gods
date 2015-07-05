@@ -13,10 +13,11 @@
 
 class Book < ActiveRecord::Base
 
-  # validations
-  validates_presence_of :title
 
-  def is_released?
-    release_date.past?
-  end
+
+  # validations
+  validates_presence_of :title, :description
+  validates_numericality_of :price, greater_than_or_equal_to: 1, less_than_or_equal_to: 50
+  validates_uniqueness_of :title
+
 end
