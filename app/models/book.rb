@@ -13,6 +13,8 @@
 
 class Book < ActiveRecord::Base
 
+  # validations
+  validates_presence_of :title
 
   def is_released?
     release_date.past?
