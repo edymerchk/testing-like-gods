@@ -19,4 +19,9 @@ class Book < ActiveRecord::Base
   def is_released?
     release_date.past?
   end
+
+  def expensive
+    sleep 15
+    true
+  end
 end

@@ -12,4 +12,9 @@ class Calculator
     a/b
   end
 
+  def expensive
+    sleep 15
+    true
+  end
+
 end

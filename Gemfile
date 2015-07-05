@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'annotate'
 gem 'faker'
+gem 'pg'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -48,5 +49,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   # Fixtures replacement
   gem 'factory_girl_rails'
+end
+
+group :development do
+  gem "parallel_tests"
 end
 

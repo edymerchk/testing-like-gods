@@ -1,20 +1,14 @@
 # Testing like the gods
 
-### 1. Creates a rails app without testing framework (Minitest)
+## parallel_tests
 
-  > `$ rails new testing-like-the-gods -T`
+### Installation
 
-
-### 2. Install rspec and Factory Girl
-
-
-> Add `rspec-rails` to **both** the `:development` and `:test` groups in the
-`Gemfile`:
+> Add parallel_tests to :development group in the Gemfile:
 
 ```ruby
-group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
-  gem 'factory_girl_rails'
+group  :development do
+  gem "parallel_tests"
 end
 ```
 
@@ -24,28 +18,26 @@ end
 bundle install
 ```
 
-> Initialize the `spec/` directory (where specs will reside) with:
+Add to `config/database.yml` file:
 
 ```
-rails generate rspec:install
+test:
+  database: yourproject_test<%= ENV['TEST_ENV_NUMBER'] %>
 ```
 
-> This adds the following files which are used for configuration:
 
-- `.rspec`
-- `spec/spec_helper.rb`
-- `spec/rails_helper.rb`
+> Create and migrate new dbs
 
-> Check the comments in each file for more information.
+bundle exec rake parallel:create
 
-Use the `rspec` command to run your specs:
+bundle exec rake parallel:prepare
 
-```
-bundle exec rspec
-```
 
+> Run with:
+
+bundle exec rake parallel:spec
 
 ### More info:
 
-* [The RSpec Book](https://pragprog.com/book/achbd/the-rspec-book)
-* [RSpec documetation and some screencasts](http://rspec.info/)
+* [parallel_tests](https://github.com/grosser/parallel_tests)
+
