@@ -5,7 +5,7 @@
   > `$ rails new testing-like-the-gods -T`
 
 
-### 2. Install rspec
+### 2. Install rspec and Factory Girl
 
 
 > Add `rspec-rails` to **both** the `:development` and `:test` groups in the
@@ -14,6 +14,7 @@
 ```ruby
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
 end
 ```
 
