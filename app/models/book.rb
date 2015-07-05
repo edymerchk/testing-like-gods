@@ -14,4 +14,7 @@
 class Book < ActiveRecord::Base
 
 
+  def is_released?
+    release_date.past?
+  end
 end
