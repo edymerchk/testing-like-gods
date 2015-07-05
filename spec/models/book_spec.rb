@@ -11,7 +11,10 @@
 #  updated_at   :datetime         not null
 #
 
-class Book < ActiveRecord::Base
+describe Book do
 
+  it "has a valid factory" do
+    expect(build(:book)).to be_valid
+  end
 
 end
