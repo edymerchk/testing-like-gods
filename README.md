@@ -1,5 +1,15 @@
 # Testing like the gods
 
+## Tools/Branch:
+
+* [guard-rspec](https://github.com/edymerchk/testing-like-gods/tree/guard_rspec)
+* [vcr + webmock](https://github.com/edymerchk/testing-like-gods/tree/vcr)
+* [parallel_tests](https://github.com/edymerchk/testing-like-gods/tree/parallel_tests)
+* [shoulda matchers](https://github.com/edymerchk/testing-like-gods/tree/shoulda_matchers)
+* [rspec-instafail](https://github.com/edymerchk/testing-like-gods/tree/rspec_instafail)
+
+## Master:
+
 ### 1. Creates a rails app without testing framework (Minitest)
 
   > `$ rails new testing-like-the-gods -T`
