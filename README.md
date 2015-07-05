@@ -1,20 +1,14 @@
 # Testing like the gods
 
-### 1. Creates a rails app without testing framework (Minitest)
+## rspec-instafail
 
-  > `$ rails new testing-like-the-gods -T`
+### Installation
 
-
-### 2. Install rspec and Factory Girl
-
-
-> Add `rspec-rails` to **both** the `:development` and `:test` groups in the
-`Gemfile`:
+> Add rspec-instafail` to :test group in the Gemfile:
 
 ```ruby
-group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
-  gem 'factory_girl_rails'
+group  :test do
+  gem 'rspec-instafail'
 end
 ```
 
@@ -24,28 +18,16 @@ end
 bundle install
 ```
 
-> Initialize the `spec/` directory (where specs will reside) with:
+Add to `.rspec` file:
 
-```
-rails generate rspec:install
-```
+--require rspec/instafail
 
-> This adds the following files which are used for configuration:
+--format RSpec::Instafail
 
-- `.rspec`
-- `spec/spec_helper.rb`
-- `spec/rails_helper.rb`
-
-> Check the comments in each file for more information.
-
-Use the `rspec` command to run your specs:
-
-```
-bundle exec rspec
-```
+> Use rspec command as usual
 
 
 ### More info:
 
-* [The RSpec Book](https://pragprog.com/book/achbd/the-rspec-book)
-* [RSpec documetation and some screencasts](http://rspec.info/)
+* [rspec-instafail](https://github.com/grosser/rspec-instafail)
+
