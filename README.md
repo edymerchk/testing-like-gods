@@ -1,20 +1,15 @@
 # Testing like the gods
 
-### 1. Creates a rails app without testing framework (Minitest)
+## VCR-webmock
 
-  > `$ rails new testing-like-the-gods -T`
+### Installation
 
-
-### 2. Install rspec and Factory Girl
-
-
-> Add `rspec-rails` to **both** the `:development` and `:test` groups in the
-`Gemfile`:
+> Add vcr and webmock to :test and :development group in the Gemfile:
 
 ```ruby
-group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
-  gem 'factory_girl_rails'
+group  :test, :development do
+  gem 'vcr'
+  gem 'webmock'
 end
 ```
 
@@ -24,28 +19,25 @@ end
 bundle install
 ```
 
-> Initialize the `spec/` directory (where specs will reside) with:
+Add a support file
+
+spec/support/vcr_setup.rb
+```ruby
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/vcr'
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+end
 
 ```
-rails generate rspec:install
-```
 
-> This adds the following files which are used for configuration:
+Add :vcr to your tests
 
-- `.rspec`
-- `spec/spec_helper.rb`
-- `spec/rails_helper.rb`
-
-> Check the comments in each file for more information.
-
-Use the `rspec` command to run your specs:
-
-```
-bundle exec rspec
-```
+> Use rspec command as usual
 
 
 ### More info:
 
-* [The RSpec Book](https://pragprog.com/book/achbd/the-rspec-book)
-* [RSpec documetation and some screencasts](http://rspec.info/)
+* [webmock](https://github.com/bblimke/webmock)
+* [VCR](https://github.com/vcr/vcr)
+
