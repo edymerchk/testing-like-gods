@@ -48,5 +48,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   # Fixtures replacement
   gem 'factory_girl_rails'
+
+  gem 'guard-rspec', require: false
 end
 

@@ -1,20 +1,14 @@
 # Testing like the gods
 
-### 1. Creates a rails app without testing framework (Minitest)
+## guard-rspec
 
-  > `$ rails new testing-like-the-gods -T`
+### Installation
 
-
-### 2. Install rspec and Factory Girl
-
-
-> Add `rspec-rails` to **both** the `:development` and `:test` groups in the
-`Gemfile`:
+> Add guard-rspec to :test and :development group in the Gemfile:
 
 ```ruby
-group :development, :test do
-  gem 'rspec-rails', '~> 3.0'
-  gem 'factory_girl_rails'
+group  :test, :development do
+  gem 'guard-rspec', require: false
 end
 ```
 
@@ -24,28 +18,19 @@ end
 bundle install
 ```
 
-> Initialize the `spec/` directory (where specs will reside) with:
+
+Add guard definition to your Guardfile by running this command:
 
 ```
-rails generate rspec:install
+$ guard init rspec
 ```
 
-> This adds the following files which are used for configuration:
 
-- `.rspec`
-- `spec/spec_helper.rb`
-- `spec/rails_helper.rb`
-
-> Check the comments in each file for more information.
-
-Use the `rspec` command to run your specs:
-
-```
-bundle exec rspec
-```
+> Use guard command and modify any file
 
 
 ### More info:
 
-* [The RSpec Book](https://pragprog.com/book/achbd/the-rspec-book)
-* [RSpec documetation and some screencasts](http://rspec.info/)
+* [guard-rspec](https://github.com/guard/guard-rspec)
+* [guard](https://github.com/guard/guard)
+
